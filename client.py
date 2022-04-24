@@ -30,4 +30,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
   data = s.recv(256)
   
   # Print out the received data so the user can see it.
+  msg = data.decode(encoding="UTF-8")
   print(f"Received message from {host}, port {port!r}:\n   \"{msg}\"")
