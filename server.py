@@ -30,7 +30,7 @@ def network_port(net_port):
 # (For example, SSH is port 22, HTTP is port 80, HTTPS is port 443)
 
 parser.add_argument("-p","--port", default=25000, type=network_port,
-                    help="port number to listen on, in range [1024,65535] (defaults to 25000)")
+                    help="port number to listen on, in range [1024,65535] (default: %(default)s)")
 
 args = parser.parse_args()
 
