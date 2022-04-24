@@ -7,7 +7,7 @@ Basic client/server sockets example using Python, intended for teaching and my o
 
 # Run Instructions (Ubuntu Linux)
   - Open two terminal windows, then move into the `python_sockets` directory in both.
-  - Run `./server` in one terminal window, then run `./client` in the other.
+  - Run `./server.py` in one terminal window, then run `./client.py` in the other.
   - The client and server both use localhost (`127.0.0.1`) and the same port by default.
 
 # Resources
