@@ -21,14 +21,16 @@ def network_port(net_port):
   if p < 1024 or p > 65535:
     raise argparse.ArgumentTypeError(f"Can't use port {p}, please use a port between 1024 and 65535")
   return p
-
-parser.add_argument("-p","--port", default=25000, type=network_port,
-                    help="port number to listen on, in range [1024,65535]")
-# The port number is arbitrary - but the client will need to know it in order to connect to this server.
+# The port number is arbitrary - but the client will need to know it in order to
+# connect to this server.
+#
 # Port numbers can be anything > 0 that fits in a 16-bit unsigned integer: [1,65535].
+#
 # Port numbers below 1024 may be reserved for certain protocols, so avoid those.
 # (Ex: SSH is port 22, HTTP is port 80, HTTPS is port 443)
 
+parser.add_argument("-p","--port", default=25000, type=network_port,
+                    help="port number to listen on, in range [1024,65535] (defaults to 25000)")
 
 args = parser.parse_args()
 
@@ -60,5 +62,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
       if not data:
         break
       
-      # Send the received data back to the cleient.
+      # Send the received data back to the client.
+      print(f"Received message from client, echoing it back.")
       conn.sendall(data)
