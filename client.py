@@ -23,7 +23,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
   print(f"Sending message to {host}, port {port!r}:\n   \"{msg}\"")
   byte_msg = msg.encode(encoding="UTF-8")
   
-  # If successful, send some text to the server (the 'b' means it's a byte string).
+  # If successful, send some text to the server.
   s.sendall(byte_msg)
   
   # Wait for the bytestring coming back from the server.

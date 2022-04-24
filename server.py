@@ -11,9 +11,13 @@ import socket
 # SOCK_STREAM: use TCP to send data. To use UDP, we'd set SOCK_DGRAM instead.
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
   s.bind(("", 25000)) # Assign the socket to all network interfaces, on port 25000. ("" means any IP address, here)
-  # The port number is arbitrary - but the client will need to know it in order to connect to this server.
+  # The port number is arbitrary - but the client will need to know it in order to
+  # connect to this server.
+  #
   # Port numbers can be anything > 0 that fits in a 16-bit unsigned integer: [1,65535].
-  # Port numbers <1024 may be reserved for certain protocols, so avoid those. (Ex: SSH is port 22, HTTP is port 80)
+  #
+  # Port numbers <1024 may be reserved for certain protocols, so avoid those.
+  # (For example, SSH is port 22, HTTP is port 80, HTTPS is port 443)
   
   # Set up the socket for listening, use the default value for backlog (# of unaccepted connections before closure).
   s.listen()
@@ -32,5 +36,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
       if not data:
         break
       
-      # Send the received data back to the cleient.
+      # Send the received data back to the client.
+      print(f"Received message from client, echoing it back.")
       conn.sendall(data)
