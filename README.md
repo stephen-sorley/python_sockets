@@ -10,6 +10,10 @@ Basic client/server sockets example using Python, intended for teaching and my o
   - Run `./server.py` in one terminal window, then run `./client.py` in the other.
   - The client and server both use localhost (`127.0.0.1`) and the same port by default.
 
+# Notes
+  - The port and/or host address can be changed by passing optional arguments when you run the client or server. Run `./client.py --help` or `./server.py --help` for details.
+  - If the client or server gets stuck waiting for a response, you can use `CTRL-C` at any time to force-kill the program.
+
 # Resources
   - Tutorial on socket programming with Python: https://realpython.com/python-sockets/
   - Python3 'socket' module API docs: https://docs.python.org/3/library/socket.html
